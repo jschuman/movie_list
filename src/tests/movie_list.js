@@ -16,38 +16,32 @@ describe('Movie Search Tests', () => {
 
     it ('shows results', (client) => {
       client.expect.element('.table').to.contain.text('A New Hope');
-      client.end();
     });
 
     it ('retains search string in search input field', (client) => {
-      client.expect.element('input.search-input').to.contain.value('star wars');
-      client.end();
+      client.expect.element('input.search-input').to.contain.value('star wars')
     });
 
     it ('shows results in ascending order by year by default', (client) => {
       client.expect.element('table th.header-Year i.fa-sort-asc').to.be.present;
-      client.expect.element('table tr:first-child td.movie-Year').to.contain.text('1977');
-      client.end();
+      client.expect.element('table tr:first-child td.movie-Year').to.contain.text('1977')
     });
 
     it ('shows results in descending order by year when year header first clicked', (client) => {
       client.click('table th.header-Year');
       client.expect.element('table th.header-Year i.fa-sort-desc').to.be.present;
-      client.expect.element('table tr:first-child td.movie-Year').to.contain.text('20');
-      client.end();
+      client.expect.element('table tr:first-child td.movie-Year').to.contain.text('20')
     });
 
     it ('shows results in ascending order by title when title header first clicked', (client) => {
       client.click('table th.header-Title');
-      client.expect.element('table th.header-Title i.fa-sort-asc').to.be.present;
-      client.end();
+      client.expect.element('table th.header-Title i.fa-sort-asc').to.be.present
     });
 
     it ('shows results in descending order by title when title header clicked twice', (client) => {
       client.click('table th.header-Title');
       client.click('table th.header-Title');
-      client.expect.element('table th.header-Title i.fa-sort-desc').to.be.present;
-      client.end();
+      client.expect.element('table th.header-Title i.fa-sort-desc').to.be.present
     });
 
     describe('and selecting a movie', () => {
@@ -62,22 +56,23 @@ describe('Movie Search Tests', () => {
       it ('has url with imdb id', (client) => {
         //hardcoded with Star Wars id
         client.assert.urlContains('/movies/tt0076759');
-        client.end();
       });
 
       it ('shows the details of a movie', (client) => {
         client.expect.element('h3 span').to.be.present;
         client.expect.element('span#imdb_rating').to.contain.text('IMDB Rating');
-        client.end();
       });
 
       it ('has a link back to search page', (client) => {
-        client.expect.element('a').to.have.attribute('href').which.matches(/\//);
-        client.end();
+        client.expect.element('a').to.have.attribute('href').equals('http://localhost:8080/');
       });
     });
 
   });
 
+  after( (client, done) => {
+    client.end();
+    done();
+  });
 
 });
