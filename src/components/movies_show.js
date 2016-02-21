@@ -19,7 +19,7 @@ class MoviesShow extends Component {
       className = 'primary';
     }
 
-    return <span>IMDB Rating: <span className={`label label-${className}`}>{rating}</span></span>;
+    return <span id='imdb_rating'>IMDB Rating: <span className={`label label-${className}`}>{rating}</span></span>;
   }
 
   render() {
