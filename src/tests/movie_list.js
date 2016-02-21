@@ -9,7 +9,7 @@ describe('Movie Search Tests', function () {
         .setValue('input.search-input', 'star wars')
         .waitForElementVisible('button.search-btn', 1000)
         .click('button.search-btn')
-        .pause(1000)
+        .waitForElementVisible('table tr:first-child td.movie-Year', 500)
 
       done();
     });
@@ -54,7 +54,7 @@ describe('Movie Search Tests', function () {
       beforeEach(function(client, done) {
         client
           .click('table tr:first-child td.movie-Title')
-          .pause(1000)
+          .waitForElementVisible('h3', 500)
 
         done();
       });
