@@ -1,0 +1,26 @@
+.input-group {
+  margin: 20px 0px;
+}
+
+th, tr {
+  cursor: pointer;
+}
+
+td, th {
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
+td:first-of-type {
+  height: 100px;
+  width: 250px;
+}
+
+td, img {
+  height: 100px;
+  margin-right: 10px;
+}
+
+i {
+  margin-left: 5px;
+}
