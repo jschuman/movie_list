@@ -19,29 +19,29 @@ describe('Movie Search Tests', () => {
     });
 
     it ('retains search string in search input field', (client) => {
-      client.expect.element('input.search-input').to.contain.value('star wars')
+      client.expect.element('input.search-input').to.contain.value('star wars');
     });
 
     it ('shows results in ascending order by year by default', (client) => {
       client.expect.element('table th.header-Year i.fa-sort-asc').to.be.present;
-      client.expect.element('table tr:first-child td.movie-Year').to.contain.text('1977')
+      client.expect.element('table tr:first-child td.movie-Year').to.contain.text('1977');
     });
 
     it ('shows results in descending order by year when year header first clicked', (client) => {
       client.click('table th.header-Year');
       client.expect.element('table th.header-Year i.fa-sort-desc').to.be.present;
-      client.expect.element('table tr:first-child td.movie-Year').to.contain.text('20')
+      client.expect.element('table tr:first-child td.movie-Year').to.contain.text('20');
     });
 
     it ('shows results in ascending order by title when title header first clicked', (client) => {
       client.click('table th.header-Title');
-      client.expect.element('table th.header-Title i.fa-sort-asc').to.be.present
+      client.expect.element('table th.header-Title i.fa-sort-asc').to.be.present;
     });
 
     it ('shows results in descending order by title when title header clicked twice', (client) => {
       client.click('table th.header-Title');
       client.click('table th.header-Title');
-      client.expect.element('table th.header-Title i.fa-sort-desc').to.be.present
+      client.expect.element('table th.header-Title i.fa-sort-desc').to.be.present;
     });
 
     describe('and selecting a movie', () => {
