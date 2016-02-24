@@ -31,6 +31,9 @@ describe('Movie Search Tests', () => {
       client.click('table th.header-Year');
       client.expect.element('table th.header-Year i.fa-sort-desc').to.be.present;
       client.expect.element('table tr:first-child td.movie-Year').to.contain.text('20');
+      client.getText("table tr:first-child td.movie-Year", function(result) {
+        this.assert.equal(result.value > 2010, true);
+      });
     });
 
     it ('shows results in ascending order by title when title header first clicked', (client) => {
