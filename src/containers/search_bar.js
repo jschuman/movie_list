@@ -7,6 +7,8 @@ class SearchBar extends Component {
   constructor(props){
     super(props);
 
+    console.log('git experiment');
+
     this.state = { term: '' };
 
     this.onInputChange = this.onInputChange.bind(this);
